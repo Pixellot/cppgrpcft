@@ -76,7 +76,7 @@ void BytesTransferClient::Send(const google::protobuf::Any& streamerMsg, const g
         throw std::runtime_error(ss.str());
     }
 
-    Defer defer([&streamer]() noexcept {
+    Defer defer([&streamer]() {
         streamer->finalize();
     });
 

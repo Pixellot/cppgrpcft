@@ -2,13 +2,13 @@
 
 class Defer {
 public:
-    Defer(const std::function<void(void) noexcept>& func) : _func(func) {}
+    Defer(const std::function<void()>& func) : _func(func) {}
 
     ~Defer() {
         _func();
     }
     
 private:
-    std::function<void(void) noexcept> _func;
+    std::function<void()> _func;
 };
 
